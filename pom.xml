@@ -11,8 +11,14 @@
     <groupId>com.scu</groupId>
     <artifactId>finwise</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>finwise</name>
     <description>financial wise</description>
+    <modules>
+        <module>finwise-common</module>
+        <module>service-base</module>
+        <module>service-core</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
