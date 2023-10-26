@@ -1,6 +1,8 @@
 package com.scu.finwise.core.controller.admin;
 
+import com.scu.finwise.common.exception.Assert;
 import com.scu.finwise.common.result.R;
+import com.scu.finwise.common.result.ResponseEnum;
 import com.scu.finwise.core.pojo.entity.IntegralGrade;
 import com.scu.finwise.core.service.IntegralGradeService;
 import io.swagger.annotations.Api;
@@ -52,6 +54,9 @@ public class AdminIntegralGradeController {
     @PostMapping("/save")
     public R save(@ApiParam(value = "积分等级对象") @RequestBody IntegralGrade integralGrade) {
         boolean result = integralGradeService.save(integralGrade);
+
+        Assert.notNull(integralGrade.getBorrowAmount(), ResponseEnum.BORROW_AMOUNT_NULL_ERROR);
+
         if(result) {
             return R.ok().changeMessage("增加成功");
         }
