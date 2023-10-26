@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
  * @Create: 2023-10-26 16:32
  **/
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 public class BusinessException extends RuntimeException {
