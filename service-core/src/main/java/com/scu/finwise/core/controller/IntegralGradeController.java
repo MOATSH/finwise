@@ -1,6 +1,7 @@
 package com.scu.finwise.core.controller;
 
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @author MOATSH
  * @since 2023-10-26
  */
+@Api(tags = "网站积分等级接口")
 @RestController
-@RequestMapping("/integralGrade")
+@RequestMapping("/api/core/integralGrade")
 public class IntegralGradeController {
+
+
 
 }
 
