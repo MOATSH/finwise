@@ -3,6 +3,7 @@ package com.scu.finwise.core.pojo.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -49,6 +50,7 @@ public class Dict implements Serializable {
 
     @ApiModelProperty(value = "删除标记（0:不可用 1:可用）")
     @TableField("is_deleted")
+    @TableLogic
     private Boolean deleted;
 
 
