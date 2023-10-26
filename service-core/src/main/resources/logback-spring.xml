@@ -73,16 +73,16 @@
 
     <!-- 开发环境和测试环境 -->
     <springProfile name="dev,test">
-        <logger name="com.scu" level="INFO">
+        <root level="INFO">
             <appender-ref ref="CONSOLE" />
-        </logger>
+        </root>
     </springProfile>
 
     <!-- 生产环境 -->
     <springProfile name="prod">
-        <logger name="com.scu" level="ERROR">
+        <root level="ERROR">
             <appender-ref ref="CONSOLE" />
             <appender-ref ref="ROLLING_FILE" />
-        </logger>
+        </root>
     </springProfile>
 </configuration>
