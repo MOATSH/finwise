@@ -8,6 +8,7 @@ import com.scu.finwise.core.service.IntegralGradeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,6 +25,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/admin/core/integralGrade")
+@Slf4j
 public class AdminIntegralGradeController {
     @Resource
     private IntegralGradeService integralGradeService;
@@ -33,7 +35,6 @@ public class AdminIntegralGradeController {
     @GetMapping("/list")
     public R listAll() {
         List<IntegralGrade> list = integralGradeService.list();
-
         return R.ok().data("list", list).changeMessage("获取列表成功");
     }
 
