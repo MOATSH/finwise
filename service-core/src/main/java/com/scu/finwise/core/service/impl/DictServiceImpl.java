@@ -64,7 +64,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         //先查询redis中是否存在数据列表
         List<Dict> dictList = null;
         try {
-            dictList = (List<Dict>)redisTemplate.opsForValue().get("srb:core:dictList:" + parentId);
+            dictList = (List<Dict>)redisTemplate.opsForValue().get("finwise:core:dictList:" + parentId);
             if(dictList != null){
                 log.info("从redis中取值");
                 return dictList;
@@ -83,7 +83,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
         //将数据存入redis
         try {
-            redisTemplate.opsForValue().set("srb:core:dictList:" + parentId, dictList, 5, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set("finwise:core:dictList:" + parentId, dictList, 5, TimeUnit.MINUTES);
             log.info("数据存入redis");
         } catch (Exception e) {
             log.error("redis服务器异常：" + ExceptionUtils.getStackTrace(e));//此处不抛出异常，继续执行后面的代码
@@ -99,5 +99,4 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         Integer count = baseMapper.selectCount(queryWrapper);
         return count > 0;
     }
-
 }
