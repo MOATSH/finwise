@@ -13,6 +13,7 @@ import com.scu.finwise.core.service.UserInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +38,8 @@ public class UserInfoController {
     private UserInfoService userInfoService;
     @Resource
     private RedisTemplate redisTemplate;
+    @Resource
+    private MyFeignClient myFeignClient;
 
 
     @ApiOperation("会员注册")
@@ -95,5 +98,10 @@ public class UserInfoController {
         }
     }
 
+    @GetMapping("/testFeignClient")
+    public void testFeignClient() {
+        String someData = myFeignClient.getSomeData();
+        System.out.println(someData);
+    }
 }
 

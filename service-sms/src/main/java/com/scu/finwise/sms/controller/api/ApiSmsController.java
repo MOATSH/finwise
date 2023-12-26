@@ -32,12 +32,11 @@ import java.util.concurrent.TimeUnit;
 @CrossOrigin //跨域
 @Slf4j
 public class ApiSmsController {
-
     @Resource
     private SmsService smsService;
-
     @Resource
     private RedisTemplate redisTemplate;
+
 
     @ApiOperation("获取验证码")
     @GetMapping("/send/{mobile}")
@@ -64,4 +63,8 @@ public class ApiSmsController {
         return R.ok().changeMessage("短信发送成功");
     }
 
+    @GetMapping("/testFeignInterface")
+    public String test(){
+        return "testFeignInterface";
+    }
 }
